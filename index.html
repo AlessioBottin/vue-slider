@@ -37,7 +37,7 @@
                 <div class="thumbnails">
     
                     <!-- Single thumbnail  -->
-                    <div v-for="(slide, index) in slides" class="single-thumbnail" :class="{ active: index === currentActiveSlideIndex }">
+                    <div v-for="(slide, index) in slides" class="single-thumbnail" :class="{ active: index === currentActiveSlideIndex }" @click="currentActiveSlideIndex = index">
                         <div class="overlay"></div>
                         <img :src="slide.imgSrc" alt="slide.title">
                     </div>
