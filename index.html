@@ -21,13 +21,13 @@
                 <div class="current-img">
     
                     <!-- Single img  -->
-                    <div v-for="slide in slides" class="single-img">
+                    <div class="single-img">
     
-                        <img :src="slide.imgSrc" alt="">
+                        <img :src="slides[currentActiveSlideIndex].imgSrc" :alt="slides[currentActiveSlideIndex].title">
     
                         <div class="desc">
-                            <div class="title"></div>
-                            <p class="text"></p>    
+                            <div class="title">{{ slides[currentActiveSlideIndex].title }}</div>
+                            <p class="text">{{ slides[currentActiveSlideIndex].text }}</p>    
                         </div>
                     </div>
     
@@ -37,10 +37,10 @@
                 <div class="thumbnails">
     
                     <!-- Single thumbnail  -->
-                    <!-- <div class="single-thumbnail">
+                    <div v-for="slide in slides" class="single-thumbnail">
                         <div class="overlay"></div>
-                        <img src="img/01.jpg" alt="">
-                    </div> -->
+                        <img :src="slide.imgSrc" alt="slide.title">
+                    </div>
     
                     <!-- Arrow up  -->
                     <div class="arrow up">
