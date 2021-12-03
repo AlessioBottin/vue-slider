@@ -3,6 +3,7 @@ Vue.config.devtools = true;
 const app = new Vue({
     el: '#root',
     data: {
+        clock: false,
         currentActiveSlideIndex: 0,
         slides: [
             {
@@ -47,6 +48,15 @@ const app = new Vue({
                 this.currentActiveSlideIndex = 0;
             };
         },
+        // Timing Functions 
+        autoPlay: function () {
+            this.clock = setInterval(() => {
+                this.nextSlide();
+            }, 3000)
+        }
 
+    },
+    created: function () {
+        this.autoPlay();
     }
 })
