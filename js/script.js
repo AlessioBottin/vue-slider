@@ -49,14 +49,17 @@ const app = new Vue({
             };
         },
         // Timing Functions 
-        autoPlay: function () {
+        startAutoPlay: function () {
             this.clock = setInterval(() => {
                 this.nextSlide();
             }, 3000)
+        },
+        stopAutoPlay: function () {
+            clearInterval(this.clock);
         }
 
     },
     created: function () {
-        this.autoPlay();
+        this.startAutoPlay();
     }
 })
