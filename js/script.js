@@ -3,6 +3,8 @@ Vue.config.devtools = true;
 const app = new Vue({
     el: '#root',
     data: {
+        loadBarPercentage: 0,
+        increaseClock: false,
         clock: false,
         currentActiveSlideIndex: 0,
         slides: [
@@ -40,6 +42,7 @@ const app = new Vue({
             } else {
                 this.currentActiveSlideIndex = this.slides.length - 1;
             };
+            
         },
         nextSlide:  function () {
             if (this.currentActiveSlideIndex < this.slides.length - 1) {
@@ -48,7 +51,6 @@ const app = new Vue({
                 this.currentActiveSlideIndex = 0;
             };
         },
-        // Timing Functions 
         startAutoPlay: function () {
             this.clock = setInterval(() => {
                 this.nextSlide();
@@ -56,10 +58,20 @@ const app = new Vue({
         },
         stopAutoPlay: function () {
             clearInterval(this.clock);
+        },
+        increaseLoadBarCounter: function () {
+            this.increaseClock = setInterval(() => {
+                if (this.loadBarPercentage >= 99.9) {
+                    this.loadBarPercentage = 0;
+                } else {
+                    this.loadBarPercentage = this.loadBarPercentage + 100 / 54;
+                }   
+            }, 55.5)
         }
 
     },
     created: function () {
         this.startAutoPlay();
+        this.increaseLoadBarCounter();
     }
 })
