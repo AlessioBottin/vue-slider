@@ -37,18 +37,18 @@
                 <div class="thumbnails">
     
                     <!-- Single thumbnail  -->
-                    <div v-for="slide in slides" class="single-thumbnail">
+                    <div v-for="(slide, index) in slides" class="single-thumbnail" :class="{ active: index === currentActiveSlideIndex }">
                         <div class="overlay"></div>
                         <img :src="slide.imgSrc" alt="slide.title">
                     </div>
     
                     <!-- Arrow up  -->
-                    <div class="arrow up">
+                    <div class="arrow up" @click="previousSlide">
                         <i class="fas fa-chevron-up"></i>
                     </div>
     
                     <!-- Arrow down  -->
-                    <div class="arrow down">
+                    <div class="arrow down" @click="nextSlide">
                         <i class="fas fa-chevron-down"></i>
                     </div>
     

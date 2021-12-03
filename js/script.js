@@ -33,6 +33,20 @@ const app = new Vue({
         ]
     },
     methods: {
+        previousSlide: function () {
+            if (this.currentActiveSlideIndex > 0) {
+                this.currentActiveSlideIndex--;
+            } else {
+                this.currentActiveSlideIndex = this.slides.length - 1;
+            };
+        },
+        nextSlide:  function () {
+            if (this.currentActiveSlideIndex < this.slides.length - 1) {
+                this.currentActiveSlideIndex++;
+            } else {
+                this.currentActiveSlideIndex = 0;
+            };
+        },
 
     }
 })
